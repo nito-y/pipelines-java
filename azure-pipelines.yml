@@ -10,9 +10,9 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-- stage: teststage
+- stage: stage1
   jobs:
-  - job: A
+  - job: A1
     steps:
     - task: Maven@3
       inputs:
@@ -24,7 +24,15 @@ stages:
         publishJUnitResults: true
         testResultsFiles: '**/surefire-reports/TEST-*.xml'
         goals: 'package'
-
-  - job: B
+  - job: A2
     steps:
-    - bash: echo "B"
+    - bash: echo "A2"
+
+- stage: stage2
+  jobs:
+  - job: B1
+    steps:
+    - bash: echo "B1"
+  - job: B2
+    steps:
+    - bash: echo "B2" 
