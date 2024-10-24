@@ -9,6 +9,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+- name: ymlVar
+  value: var
+
 stages:
 - stage: test_build
   jobs:
@@ -30,9 +34,9 @@ stages:
 
 - stage: stage2
   jobs:
-  - job: B1
+  - job: QueueTimeVariable
     steps:
-    - bash: echo $(myReadOnlyVar)
-  - job: B2
+    - bash: echo $(mQueueTimeVariable)
+  - job: ymlVar
     steps:
-    - bash: echo "B2" 
+    - bash: echo $(ymlVar)
