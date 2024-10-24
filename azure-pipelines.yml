@@ -32,7 +32,7 @@ stages:
   jobs:
   - job: B1
     steps:
-    - bash: echo "B1"
+    - bash: echo $(myReadOnlyVar)
   - job: B2
     steps:
     - bash: echo "B2" 
